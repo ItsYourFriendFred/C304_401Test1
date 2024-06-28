@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FredWong_COMP304_001_HandsOn_Test1_S24" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.FredWong_COMP304_001_HandsOn_Test1_S24" parent="Base.Theme.FredWong_COMP304_001_HandsOn_Test1_S24" />
+</resources>
