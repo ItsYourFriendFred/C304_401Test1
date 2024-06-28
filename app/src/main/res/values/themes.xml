@@ -1,8 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.FredWong_COMP304_001_HandsOn_Test1_S24" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.FredWong_COMP304_001_HandsOn_Test1_S24" parent="Theme.MaterialComponents.DayNight">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/light_blue</item>
+        <item name="colorPrimaryVariant">@color/darker_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
     </style>
 
     <style name="Theme.FredWong_COMP304_001_HandsOn_Test1_S24" parent="Base.Theme.FredWong_COMP304_001_HandsOn_Test1_S24" />
