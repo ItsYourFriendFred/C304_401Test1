@@ -5,4 +5,20 @@
     <string name="text_button_main">Select Exercises</string>
     <string name="content_description_imageButton_main">Clickable image to proceed to exercise selection screen</string>
     <string name="actionBar_title_truncated">Hands-On Test 1 COMP-304 401</string>
+    <string name="text_checkbox_1">Lose things</string>
+    <string name="text_checkbox_2">Remember names</string>
+    <string name="text_checkbox_3">Learn things quickly</string>
+    <string name="text_checkbox_4">Keep track of multiple things</string>
+    <string name="text_button_exercise">Next</string>
+    <string-array name="y_coordinates">
+        <item>150</item>
+        <item>100</item>
+        <item>150</item>
+        <item>150</item>
+        <item>100</item>
+        <item>150</item>
+        <item>150</item>
+        <item>100</item>
+        <item>150</item>
+    </string-array>
 </resources>

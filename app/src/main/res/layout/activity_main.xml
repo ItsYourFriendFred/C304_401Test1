@@ -41,15 +41,18 @@
 
     <ImageButton
         android:id="@+id/imageButtonMain"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
         android:contentDescription="@string/content_description_imageButton_main"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_image_button"
         app:layout_constraintBottom_toTopOf="@+id/buttonMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textMainSubtitle"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@id/textMainSubtitle" />
 
     <Button
         android:id="@+id/buttonMain"
