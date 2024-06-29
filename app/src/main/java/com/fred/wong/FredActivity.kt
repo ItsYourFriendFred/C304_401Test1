@@ -26,7 +26,7 @@ class FredActivity : AppCompatActivity() {
 
         // Setting the title to Hands-On Test 1 COMP-304 401 instead of app name (FredWong_COMP304_001_Hands-On_Test1_S24)
         // since app name title is too long and gets cut off
-        supportActionBar?.title = getString(R.string.actionBar_title_truncated)
+        supportActionBar?.title = getString(R.string.actionBar_main_title_truncated)
 
         // Retrieve both the ImageButton and Button controls
         val imageButtonMain: ImageButton = findViewById(R.id.imageButtonMain)
