@@ -32,7 +32,7 @@ class FredActivity : AppCompatActivity() {
         val imageButtonMain: ImageButton = findViewById(R.id.imageButtonMain)
         val buttonMain: Button = findViewById(R.id.buttonMain)
 
-        // Set OnClickListeners for both button types
+        // Set OnClickListeners for both button types so second activity can be reached regardless of user choice
         imageButtonMain.setOnClickListener {
             val intent = Intent(this, WongActivity::class.java)
             startActivity(intent)
