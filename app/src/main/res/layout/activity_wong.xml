@@ -13,8 +13,9 @@
         android:id="@+id/imageViewZigZagLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:background="@color/light_blue"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutCheckBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,25 +40,25 @@
             android:id="@+id/checkBoxExercise1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_checkbox_1" />
+            android:text="@string/text_exercise_1" />
 
         <CheckBox
             android:id="@+id/checkBoxExercise2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_checkbox_2" />
+            android:text="@string/text_exercise_2" />
 
         <CheckBox
             android:id="@+id/checkBoxExercise3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_checkbox_3" />
+            android:text="@string/text_exercise_3" />
 
         <CheckBox
             android:id="@+id/checkBoxExercise4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_checkbox_4" />
+            android:text="@string/text_exercise_4" />
     </LinearLayout>
 
     <Button

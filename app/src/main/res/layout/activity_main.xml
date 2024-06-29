@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
         android:adjustViewBounds="true"
-        android:background="@null"
+        android:background="@color/light_blue"
         android:contentDescription="@string/content_description_imageButton_main"
         android:scaleType="fitXY"
         android:src="@drawable/main_image_button"
