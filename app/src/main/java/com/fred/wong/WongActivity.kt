@@ -101,7 +101,7 @@ class WongActivity : AppCompatActivity() {
             // Handle if the string is empty by setting a default message, otherwise, set to formatted string
             textViewToast.text = formattedString.ifEmpty { getString(R.string.text_no_exercises_selected) }
 
-            val toast = Toast.makeText(this, "", Toast.LENGTH_LONG)
+            val toast = Toast.makeText(this, "", Toast.LENGTH_SHORT)
             // Set the Toast to use the custom layout, replacing the makeTest's set text in the process
             toast.view = customLayout  // Android API deprecated custom Toast view setter, but test requirements ask for a Toast. Custom is the only option for multiline message
             toast.show()
