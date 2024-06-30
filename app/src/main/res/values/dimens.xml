@@ -3,4 +3,5 @@
     <item name="image_zigzag_y_displacement" type="integer">50</item>
     <item name="image_zigzag_x_increment" type="integer">100</item>
     <item name="image_zigzag_stroke_width" format="float" type="dimen">8F</item>
+    <item name="image_zigzag_x_starting_coordinate" format="float" type="dimen">0F</item>
 </resources>

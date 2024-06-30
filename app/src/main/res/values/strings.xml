@@ -11,6 +11,8 @@
     <string name="text_exercise_3">Learn things quickly</string>
     <string name="text_exercise_4">Keep track of multiple things</string>
     <string name="text_button_exercise">Next</string>
+    <string name="text_no_exercises_selected">No exercises were selected!</string>
+    <string name="text_content_description_zigzag_image">Image of a zigzag line</string>
     <string-array name="y_coordinates">
         <item>150</item>
         <item>100</item>

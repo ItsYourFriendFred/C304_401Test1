@@ -1,4 +1,4 @@
-// 301199984
+// Fred Wong; 301199984
 
 package com.fred.wong
 
@@ -25,7 +25,7 @@ class FredActivity : AppCompatActivity() {
         }
 
         // Setting the title to Hands-On Test 1 COMP-304 401 instead of app name (FredWong_COMP304_001_Hands-On_Test1_S24)
-        // since app name title is too long and gets cut off
+        // since app name title is too long and gets cut off otherwise
         supportActionBar?.title = getString(R.string.actionBar_main_title_truncated)
 
         // Retrieve both the ImageButton and Button controls
@@ -33,6 +33,7 @@ class FredActivity : AppCompatActivity() {
         val buttonMain: Button = findViewById(R.id.buttonMain)
 
         // Set OnClickListeners for both button types so second activity can be reached regardless of user choice
+        // for UI friendliness
         imageButtonMain.setOnClickListener {
             val intent = Intent(this, WongActivity::class.java)
             startActivity(intent)
@@ -43,6 +44,7 @@ class FredActivity : AppCompatActivity() {
         }
     }
 
+    // Inflating a menu/ActionBar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.overall_menu, menu)

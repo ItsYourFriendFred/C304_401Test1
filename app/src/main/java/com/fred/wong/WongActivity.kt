@@ -1,4 +1,4 @@
-// 301199984
+// Fred Wong; 301199984
 
 package com.fred.wong
 
@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-// Second Activity; since my name, Fred starts with a letter from A-N inclusive, use checkboxes
+// Second Activity; since my name, Fred, starts with a letter from A-N inclusive, use Checkboxes instead of RadioButtons
 
 class WongActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +35,7 @@ class WongActivity : AppCompatActivity() {
             insets
         }
 
+        // Display a back button in ActionBar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         // Set the title of the ActionBar for this activity to be Brain Challenge
         supportActionBar?.title = getString(R.string.actionBar_second_title_truncated)
@@ -57,7 +58,6 @@ class WongActivity : AppCompatActivity() {
                 checkedExercises.remove(resources.getString(R.string.text_exercise_1))
             }
         }
-
         checkBoxExercise2.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkedExercises.add(resources.getString(R.string.text_exercise_2))
@@ -65,7 +65,6 @@ class WongActivity : AppCompatActivity() {
                 checkedExercises.remove(resources.getString(R.string.text_exercise_2))
             }
         }
-
         checkBoxExercise3.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkedExercises.add(resources.getString(R.string.text_exercise_3))
@@ -73,7 +72,6 @@ class WongActivity : AppCompatActivity() {
                 checkedExercises.remove(resources.getString(R.string.text_exercise_3))
             }
         }
-
         checkBoxExercise4.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkedExercises.add(resources.getString(R.string.text_exercise_4))
@@ -98,17 +96,23 @@ class WongActivity : AppCompatActivity() {
             val inflater = layoutInflater
             val customLayout: View = inflater.inflate(R.layout.multiline_toast, findViewById(R.id.toastLayout))
 
-            // Retrieve the custom Toast's textView and set its text to the formatted string
+            // Retrieve the custom Toast's textView
             val textViewToast: TextView = customLayout.findViewById(R.id.toast_text)
-            textViewToast.text = formattedString
+            // Handle if the string is empty by setting a default message, otherwise, set to formatted string
+            textViewToast.text = formattedString.ifEmpty { getString(R.string.text_no_exercises_selected) }
 
             val toast = Toast.makeText(this, "", Toast.LENGTH_LONG)
             // Set the Toast to use the custom layout, replacing the makeTest's set text in the process
-            toast.view = customLayout  // Android API deprecated custom Toast, but test requirements ask for a Toast. Custom is the only option for multiline message
+            toast.view = customLayout  // Android API deprecated custom Toast view setter, but test requirements ask for a Toast. Custom is the only option for multiline message
             toast.show()
 
             // Toast alternative using modern SnackBar
-            /* val snackBar = Snackbar.make(findViewById(android.R.id.content), formattedString, Snackbar.LENGTH_LONG)
+            /*
+            val snackBar = Snackbar.make(
+                findViewById(android.R.id.content),
+                formattedString.ifEmpty { getString(R.string.text_no_exercises_selected) },
+                Snackbar.LENGTH_LONG
+            )
             val snackBarView: View = snackBar.view
             val textViewSnackBar: TextView = snackBarView.findViewById(com.google.android.material.R.id.snackbar_text)
             textViewSnackBar.maxLines = 5
@@ -118,7 +122,9 @@ class WongActivity : AppCompatActivity() {
 
         // Initialize variables to store required y-coordinates string array, and individual x- and y-values
         val yCoordinates = resources.getStringArray(R.array.y_coordinates)
-        var xValue = 0F
+        val outXValue = TypedValue()
+        resources.getValue(R.dimen.image_zigzag_x_starting_coordinate, outXValue, true)
+        var xValue: Float = outXValue.float
         var y: Float
 
         // Instantiate a paint object to hold info about geometries, text, and bitmaps
@@ -131,24 +137,37 @@ class WongActivity : AppCompatActivity() {
 
         // Set width based on size of y-coordinates array and height based on largest y-value
         val bitmapWidth = yCoordinates.size * resources.getInteger(R.integer.image_zigzag_x_increment)
-        val bitmapHeight = yCoordinates.max().toInt() * 2
+        val bitmapHeight = yCoordinates.max().toInt() * 2  // Setting height to be 2X of largest y-displacement
 
         // Create a bitmap with the defined height and width
         val bitmap: Bitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888)
         // Construct a canvas using the bitmap
         val canvas = Canvas(bitmap)
 
-        // Loop through each y-coordinate of the array and draw upwards (y-) and then downwards (y+) using drawLine
+        // Loop through each y-coordinate of the array;
+        // draw upwards (y-displacement) and then downwards (y+displacement) using drawLine;
         // x-interval is 100 pixels per point
         for (i in yCoordinates.indices) {
             y = yCoordinates[i].toFloat()
-            if ( i % 2 == 0) {
-                // Angled upwards
-                canvas.drawLine(xValue, y, xValue + resources.getInteger(R.integer.image_zigzag_x_increment), y - resources.getInteger(R.integer.image_zigzag_y_displacement), paint)
+            if (i % 2 == 0) {
+                // Draw angled upwards
+                canvas.drawLine(
+                    xValue,
+                    y,
+                    xValue + resources.getInteger(R.integer.image_zigzag_x_increment),
+                    y - resources.getInteger(R.integer.image_zigzag_y_displacement),
+                    paint
+                )
                 xValue += resources.getInteger(R.integer.image_zigzag_x_increment)
             } else {
-                // Angled downwards
-                canvas.drawLine(xValue, y, xValue + resources.getInteger(R.integer.image_zigzag_x_increment), y + resources.getInteger(R.integer.image_zigzag_y_displacement), paint)
+                // Draw angled downwards
+                canvas.drawLine(
+                    xValue,
+                    y,
+                    xValue + resources.getInteger(R.integer.image_zigzag_x_increment),
+                    y + resources.getInteger(R.integer.image_zigzag_y_displacement),
+                    paint
+                )
                 xValue += resources.getInteger(R.integer.image_zigzag_x_increment)
             }
         }
@@ -157,18 +176,21 @@ class WongActivity : AppCompatActivity() {
 
     }
 
+    // Inflating a menu/ActionBar
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.overall_menu, menu)
         return true
     }
 
+    // Handling menu/ActionBar items
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 onBackPressedDispatcher.onBackPressed()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
